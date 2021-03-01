@@ -1,0 +1,26 @@
+package mymain;
+
+import java.awt.Graphics;
+
+// ´« »ý¼º ´ã´ç Å¬·¡½º 
+
+public class Snow extends Item {
+	public Snow() {
+		pos.width 	= MyImages.img_snow.getWidth(null);
+		pos.height 	= MyImages.img_snow.getHeight(null);
+	}
+	public int speed;
+	
+	// ´«ÀÌ »ý¼º ÈÄ ¹ØÀ¸·Î ¶³¾îÁö°Ô
+	@Override
+	public boolean move() {
+		pos.y += speed;	
+		return (pos.y <= MyConst.GamePan.GAMEPAN_H);
+	}
+	
+	// ´«À» ±×·Á³¿
+	@Override
+	public void draw(Graphics g) {
+		g.drawImage(MyImages.img_snow,pos.x,pos.y,null);
+	}
+}
